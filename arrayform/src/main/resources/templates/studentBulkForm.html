@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>学生一括登録</title>
+</head>
+
+<body>
+    <h1>学生一括登録</h1>
+
+    <p>下記の内容で登録します．よろしいですか？</p>
+
+
+    <form th:action="@{/bulkRegister}" th:object="${bulkForm}" method="post">
+        <h2>登録するグループ</h2>
+        <table border=1>
+            <tr>
+                <th>グループID</th>
+                <th>グループ名</th>
+                <th>PHS番号</th>
+            </tr>
+            <tr th:each="g, stat: ${bulkForm.studentGroups}">
+                <td>
+                    <input type="text" th:field="*{studentGroups[__${stat.index}__].groupId}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{studentGroups[__${stat.index}__].name}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{studentGroups[__${stat.index}__].phs}" />
+                </td>
+            </tr>
+        </table>
+
+        <h2>登録する学生</h2>
+    
+        <table border=1>
+            <tr>
+                <th>学籍番号</th>
+                <th>名前</th>
+                <th>Eメール</th>
+                <th>学年</th>
+                <th>グループ</th>
+            </tr>
+            <tr th:each="s, stat: ${bulkForm.students}">
+                <td>
+                    <input type="text" th:field="*{students[__${stat.index}__].studentId}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{students[__${stat.index}__].name}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{students[__${stat.index}__].email}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{students[__${stat.index}__].grade}" />
+                </td>
+                <td>
+                    <input type="text" th:field="*{students[__${stat.index}__].groupId}" />
+                </td>
+                <input type="hidden" th:field="*{students[__${stat.index}__].id}" />
+                <input type="hidden" th:field="*{students[__${stat.index}__].url}" />
+            </tr>
+        </table>
+        <input type="submit" value="登録する" />
+        <input type="reset" value="クリア" />
+    </form>
+
+
+
+</body>
+
+
+</html>
