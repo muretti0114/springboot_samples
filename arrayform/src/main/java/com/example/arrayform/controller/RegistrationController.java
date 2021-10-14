@@ -38,7 +38,7 @@ public class RegistrationController {
             System.out.println(s);
              //登録処理
         }
-        
+
         model.addAttribute("bulkForm", bulkForm);
         return "complete";
     }
@@ -49,15 +49,15 @@ public class RegistrationController {
         ArrayList<Student> students = new ArrayList<>();
         students.add(new Student(1L, "9999001m", "神戸一郎", "9999001m@stu.kobe-u.ac.jp", 4, 1L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/hgdfajksdlfjlks;dfjal;kdsf"));
-        students.add(new Student(1L, "9999002m", "神戸二郎", "9999001m@stu.kobe-u.ac.jp", 4, 2L, 
+        students.add(new Student(2L, "9999002m", "神戸二郎", "9999001m@stu.kobe-u.ac.jp", 4, 2L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/asdfajksdlfjlks;dfjal;kdsf"));
-        students.add(new Student(1L, "9999003m", "神戸三郎", "9999001m@stu.kobe-u.ac.jp", 4, 3L, 
+        students.add(new Student(3L, "9999003m", "神戸三郎", "9999001m@stu.kobe-u.ac.jp", 4, 3L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/ahahajksdlfjlks;dfjal;kdsf"));
-        students.add(new Student(1L, "9999004m", "神戸四郎", "9999001m@stu.kobe-u.ac.jp", 4, 1L, 
+        students.add(new Student(4L, "9999004m", "神戸四郎", "9999001m@stu.kobe-u.ac.jp", 4, 1L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/asddsafajksdlfjlks;dfjal;kdsf"));
-        students.add(new Student(1L, "9999005m", "神戸五郎", "9999001m@stu.kobe-u.ac.jp", 4, 2L, 
+        students.add(new Student(5L, "9999005m", "神戸五郎", "9999001m@stu.kobe-u.ac.jp", 4, 2L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/yqaqqsdfajksdlfjlks;dfjal;kdsf"));
-        students.add(new Student(1L, "9999006m", "神戸六郎", "9999001m@stu.kobe-u.ac.jp", 4, 3L, 
+        students.add(new Student(6L, "9999006m", "神戸六郎", "9999001m@stu.kobe-u.ac.jp", 4, 3L, 
         "http://wsapp.cs.kobe-u.ac.jp/kumanomi/student/234agasdfajksdlfjlks;dfjal;kdsf"));
       
         return students;
