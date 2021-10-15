@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>健康状態の一覧</title>
+</head>
+
+<body>
+    <h1>健康状態の一覧</h1>
+
+    <table border=1>
+    <th:block th:object="${hList}">
+        <th:block th:switch="${priority}">
+            <p th:case=1 th:text="LOW"></p>
+            <p th:case=2 th:text="MIDDLE"></p>
+            <p th:case=3 th:text="HIGH"></p>
+            <p th:case=* th:text="UNKNOWN"></p>
+          </th:block>
+    <tr th:each="hc, stat: ${hList}">
+        <td th:text="${hc.name}"></td>
+        <th:block th:each="ans, i: ${hc.answers}">
+            <th:block th:switch="${ans}">
+                <td th:case="はい" th:text="Y" style='background:yellow'></td>
+                <td th:case="いいえ" th:text="N"></td>
+                <td th:case=* th:text="${ans}" th:style="${(ans > '37.5' and ans < '42.0') ? 'background:yellow': '' }"></td>
+            </th:block>
+        </th:block>
+    </tr>
+    </table>
+
+
+<!--
+    </th:block>
+    <form th:action="@{/}" th:object="${hList}" method="post">
+    <table>
+        <tr>
+            <th>ソート番号</th>
+            <th>質問文</th>
+            <th>回答タイプ</th>
+        </tr>
+        <tr th:each="qd, stat: ${questionForm.questions}">
+            <td>
+                <input type="text" th:field="*{questions[__${stat.index}__].sortNum}" />
+            </td>
+            <td>
+                <input type="text" th:field="*{questions[__${stat.index}__].questionBody}" />
+            </td>
+            <td>
+                <input type="text" th:field="*{questions[__${stat.index}__].questionType}" />
+            </td>
+            <td>
+                <select th:field="*{questions[__${stat.index}__].questionType}">
+                    <option value="Null" selected>選択してください</option>
+                    <option value="Number">Number</option>
+                    <option value="Bool">Bool</option>
+                    <option value="Text">Text</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="登録する" />
+    <input type="reset" value="クリア" />
+    </form>
+            -->
+
+
+
+</body>
+
+
+</html>

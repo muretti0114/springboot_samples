@@ -46,6 +46,7 @@
             <tr th:each="s, stat: ${bulkForm.students}">
                 <td>
                     <input type="text" th:field="*{students[__${stat.index}__].studentId}" />
+                    <p> 学番の比較． <span th:if= "${s.studentId} &gt; '37.5' and ${s.studentId} &lt; '42.0'">熱ある</span>
                 </td>
                 <td>
                     <input type="text" th:field="*{students[__${stat.index}__].name}" />
